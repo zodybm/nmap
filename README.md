@@ -12,7 +12,7 @@ Nmap is a linux-based command-line tool used for network exploration and securit
 used on windows, it is easiest to use on linux. 
 #### If your OS is a linux distro
 You can simply type in the command 'sudo apt install nmap' in the terminal.
-*Note that if you are running Kali Linux nmap will be preinstalled.*
+  * *Note that if you are running Kali Linux nmap will be preinstalled.*
 #### If your OS is Windows or other
 The easiest and safest way is to use a virtual machine, or VM. I highly recommend using [virtualbox](https://www.virtualbox.org/) I highly recommend using *virtualbox*.
 It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here](https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
