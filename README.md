@@ -1,4 +1,6 @@
 # nmap
-An introduction to the basics of nmap and how to bypass some common firewall rules
+An introduction to the basics of nmap and how to bypass some common firewall rules.
 
-For this introduction, we will assume you have no prior knowledge of nmap. 
+## What you will learn 
+* How to use nmap to build a subnet of the various hosts on a network.
+* The different tags you can use to 
