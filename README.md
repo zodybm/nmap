@@ -15,4 +15,4 @@ You can simply type in the command 'sudo apt install nmap' in the terminal.
 *Note that if you are running Kali Linux nmap will be preinstalled.*
 **If your OS is Windows or other**
 The easiest way is to use a virtual machine. I highly recommend using *virtualbox*.
-It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here] (https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
+It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here](https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
