@@ -3,4 +3,5 @@ An introduction to the basics of nmap and how to bypass some common firewall rul
 
 ## What you will learn 
 * How to use nmap to build a subnet of the various hosts on a network.
-* The different tags you can use to 
+* The different tags you can use to find various pieces of information about
+    a given host.
