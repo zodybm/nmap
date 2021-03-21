@@ -12,7 +12,8 @@ Nmap is a linux-based command-line tool used for network exploration and securit
 used on windows, it is easiest to use on linux. 
 #### If your OS is a linux distro
 You can simply type in the command 'sudo apt install nmap' in the terminal.
-![You will see something similar to this image:](https://user-images.githubusercontent.com/62024377/111914703-74196880-8a49-11eb-996e-fa36afa7d882.png)
+##### You will see something similar to the image:
+![nmap-install](https://user-images.githubusercontent.com/62024377/111915218-7e3c6680-8a4b-11eb-8855-f4be8adfffae.png)
 
 
   * *Note that if you are running Kali Linux, nmap will be preinstalled.*
