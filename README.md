@@ -22,5 +22,9 @@ The easiest and safest way is to use a virtual machine, or VM. I highly recommen
 and installing Kali Linux on it. 
 It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here](https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
 ### Using nmap
-Now that you have nmap installed, open up the terminal, if you haven't already, and type in 'nmap'. 
-
+##### Note that I am using Ubuntu, but everything is the same regardless of which linux distro you use.
+Now that you have nmap installed, open up the terminal, if you haven't already, and type in 'nmap' and hit 'enter'
+on the keyboard. What you will see is a list of various commands and flags you can use with nmap. I will be 
+showing you a general overview of certain ones for common tasks to get you started. 
+#### Network scanning
+Let's say I want to know whether my phone is up and running. I would use the command: ![ping](https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png)
