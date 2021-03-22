@@ -53,6 +53,7 @@ A much better way to do this is to use nmap. That is one of its' main uses after
 
 ![network-map](https://user-images.githubusercontent.com/62024377/111916839-41746d80-8a53-11eb-97ce-99622979f406.png)                               
 The -sP flag tells nmap to scan for all active hosts, but not to scan for ports. Thus, you get a list of all of the devices that are active on your network.
+Mine currently has 4 hosts active.
 This is called a subnet of a network. 
  
  ### Finding more specific information
