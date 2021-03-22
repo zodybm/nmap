@@ -20,7 +20,7 @@ and then it will ask you if you want to continue the installation. Press 'y' and
 #### If your OS is Windows or other
 The easiest and safest way is to use a virtual machine, or VM. I highly recommend using [virtualbox](https://www.virtualbox.org/) 
 and installing Kali Linux on it. 
-It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here](https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
+It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here.](https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
 
 ### Using nmap
 
@@ -80,13 +80,19 @@ This is called a subnet of a network.
  The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. What this means is nmap sends a SYN, the host (if active) sends 
  an ACK back, and then nmap finishes by sending its' own ACK back to secure the connection. In other words, nmap says "hey, are you listening!", the host replies back with "yeah, what's up?", and nmap says "nice, you're alive!". This scan, although effective, poses some risks. A configured firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." and can log your activites and may even prevent your scan from completing. Another flag you can use in place of -sT is -sS which is much stealthier and is refered to as a SYN scan. Nmap will send a SYN to the host, the host will send back an ACK (just like before) but instead of ackwoledging with another ACK, nmap will just cut communications. Think of it like walking away from a conversation mid-sentence. The -p flag tells nmap to scan for particular ports, in this case we scanned for ports 80 and 443 (ports used to communicate over the internet). If these ports are open, then the host is communicating over the internet, if closed then it is not. In the image above, my laptop and my router are communicating over the internet, which makes sense because I'm using my laptop to write this over the internet and my laptop connects to the internet through my router. 
 
+### More with nmap
+So now you have a basic idea of how to use nmap to get information such as knowing which devices are connected to a given network, how to obtain more specific information about those devices (like what operating system they are running) and what some common tags are used for in nmap. This is only the tip of the iceburg with what you can do with this tool, for more information about what to use nmap for please visit their official site [here.](https://nmap.org/)
  
+ ### Legal disclaimer!
+ Only use nmap on devices that **YOU** own or have explicit permission by the owner to use nmap. Although it is not necessarily illegal to "test" the security of a given network, it is highly suspicious to do so and may get you in legal trouble if you are not the explicit owner. **If you don't own it, don't touch it!**
  
+ ### Licensing
+ Nmap is distributed under the terms of the *Nmap Public Source Lincense*. Please refer to their HTML version [here](https://nmap.org/npsl/npsl-annotated.html) or their plain text version [here.](https://svn.nmap.org/nmap/LICENSE)
  
+ ### Want to contribute to nmap?
+ If you feel you have some worthy contributions to nmap, such as a discovery of a bug or a new probe, check out there website [here](https://nmap.org/book/vscan-community.html) or visit their github [here.](https://github.com/nmap/nmap/contribute)
  
- 
- 
- 
+ ## HAPPY PROBING!
 
  
 
