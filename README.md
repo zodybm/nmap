@@ -9,7 +9,7 @@ An introduction to the basics of Nmap
 ### How to install and use Nmap
 Nmap is a linux-based command-line tool used for network exploration and security auditing. Although it can be 
 used on Windows, it is easiest to use on a Debian-based Linux distro. 
-#### If your OS is a Debian-based Linux distro
+### If your OS is a Debian-based Linux distro
 You can simply type in the command 'sudo apt install nmap' in the terminal and hit 'enter'. You will be prompted for your sudo password
 and then it will ask you if you want to continue the installation. Press 'y' and hit 'enter' and that's it! Nmap is installed!
 ##### You will see something similar to the image:
@@ -17,7 +17,7 @@ and then it will ask you if you want to continue the installation. Press 'y' and
 
 
   **Note that if you are running Kali Linux, Nmap will be preinstalled.**
-#### If your OS is Windows
+### If your OS is Windows
 The easiest and safest way is to use a virtual machine, or VM. I highly recommend using [virtualbox](https://www.virtualbox.org/) 
 and installing Kali Linux on it. 
 It is a free and open-source VM perfectly suited for this task. To install Kali linux on virtualbox please click [here.](https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox)
@@ -30,7 +30,7 @@ Now that you have Nmap installed, open up the terminal and type in 'nmap' and hi
 on the keyboard. What you will see is a list of various commands and flags you can use with Nmap. I will be 
 showing you a general overview of certain ones for common tasks to get you started. 
 
-#### Network scanning
+### Network scanning
 
 Let's say I want to know whether my phone is up and running. I would use the command: 
 ![ping](https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png) 
@@ -40,7 +40,7 @@ Let's say I want to know whether my phone is up and running. I would use the com
 You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever 
 format your region uses. 
 
-##### Let's try it out!
+### Let's try it out!
 
 ![network](https://user-images.githubusercontent.com/62024377/111916494-91eacb80-8a51-11eb-9600-525e7cd55867.png)                                      
 **Note that the 0/24 at the end of the IP address tells nmap to scan for 256 IP addresses**                                                                      
@@ -49,7 +49,7 @@ for a maximum of 256 hosts. Not all of them will be used up, the majority probab
 to see which IP addresses are being used we could ping all 256 possible addresses one by one, but that is very time consuming.
 A much better way to do this is to use Nmap. That is one of its' main uses afterall! 
  
-##### The way to do that is: 
+### The way to do that is: 
 
 ![network-map](https://user-images.githubusercontent.com/62024377/111916839-41746d80-8a53-11eb-97ce-99622979f406.png)                               
 The -sP flag tells Nmap to scan for all active hosts, but not to scan for ports. Thus, you get a list of all of the devices that are active on your network.
@@ -60,7 +60,7 @@ This is called a subnet of a network.
  
 You discovered which hosts are on your network. What else can you find out about them? 
  
-##### Let's figure out what Operating System they are using!
+### Let's figure out what Operating System they are using!
  
 To do this, follow the code below:                                                                                                  
 ![operatingsystem](https://user-images.githubusercontent.com/62024377/111917439-64ece780-8a56-11eb-8bfe-e36952b8a8cb.png)                                                             
@@ -74,7 +74,7 @@ In this case, I discovered that my laptop (identified by the IP address 192.168.
 What operating system did you get back? 
 **Note that the OS detection is not always 100% reliable on Nmap.**                                                                                               
 
-##### What if we want to know which devices, if any, are on or are attempting to use the internet?
+### What if we want to know which devices, if any, are on or are attempting to use the internet?
 We can do this with the following:                                                                                    
 ![portscan](https://user-images.githubusercontent.com/62024377/111922505-88bd2700-8a70-11eb-815a-44c63224a880.png)                                             
 The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. What this means is Nmap sends a SYN, the host (if active) sends 
