@@ -24,7 +24,7 @@ It is a free and open-source VM perfectly suited for this task. To install Kali 
 
 ### Using Nmap
 
-**Note that I am using Ubuntu, but everything is the same regardless of which Debian-based Linux distro you use.**                                                
+ **Note that I am using Ubuntu, but everything is the same regardless of which Debian-based Linux distro you use.**                                                
 
 Now that you have Nmap installed, open up the terminal and type in 'nmap' and hit 'enter'
 on the keyboard. What you will see is a list of various commands and flags you can use with Nmap. I will be 
