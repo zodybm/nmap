@@ -37,7 +37,7 @@ Let's say I want to know whether my phone is up and running. I would use the com
 
 ##### to stop pinging just press ctrl+c
 
-  You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever 
+You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever 
 format your region uses. 
 
 ##### Let's try it out!
@@ -56,43 +56,43 @@ The -sP flag tells Nmap to scan for all active hosts, but not to scan for ports.
 Mine currently has 4 hosts active.
 This is called a subnet of a network. 
  
- ### Finding more specific information
+### Finding more specific information
  
- You discovered which hosts are on your network. What else can you find out about them? 
+You discovered which hosts are on your network. What else can you find out about them? 
  
- ##### Let's figure out what Operating System they are using!
+##### Let's figure out what Operating System they are using!
  
- To do this, follow the code below:                                                                                                  
- ![operatingsystem](https://user-images.githubusercontent.com/62024377/111917439-64ece780-8a56-11eb-8bfe-e36952b8a8cb.png)                                                             
- Oh no! That didn't work! Why? Sometimes, a device will be live but is configured not to respond to pings. Nmap, by default, tries to ping the device 
- and when it doesn't recieve a response back you get the problem as noted above. Not to worry! Nmap already gives us the solution. So, let's try it out.           
- ![OSdetection](https://user-images.githubusercontent.com/62024377/111917720-e4c78180-8a57-11eb-903d-5f9734004699.png)                                                                   
- AHA! It works! But why? Since Nmap, by default, tries to ping a device that is configured not to respond back, it doesn't. Thus, Nmap says "Well,
- they aren't responding. They must be down, I'm quitting.". By using the -Pn flag, we are telling Nmap that we want you to scan it regardless of 
- whether you get a response back. When it does, Nmap realizes that the host is alive and we get the information we wanted. 
- In this case, I discovered that my laptop (identified by the IP address 192.168.1.56) is running on Linux (Ubuntu to be exact). 
- What operating system did you get back? 
- ##### Note that the OS detection is not always 100% reliable on Nmap. 
- 
- ##### What if we want to know which devices, if any, are on or are attempting to use the internet?
- We can do this with the following:                                                                                    
- ![portscan](https://user-images.githubusercontent.com/62024377/111922505-88bd2700-8a70-11eb-815a-44c63224a880.png)                                             
- The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. What this means is Nmap sends a SYN, the host (if active) sends 
- an ACK back, and then Nmap finishes by sending its' own ACK back to secure the connection. In other words, Nmap says "hey, are you listening!", the host replies back with "yeah, what's up?", and Nmap says "nice, you're alive!". This scan, although effective, poses some risks. A configured firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." and can log your activites and may even prevent your scan from completing. Another flag you can use in place of -sT is -sS which is much stealthier and is refered to as a SYN scan. Nmap will send a SYN to the host, the host will send back an ACK (just like before) but instead of ackwoledging with another ACK, Nmap will just cut communications. Think of it like walking away from a conversation mid-sentence. The -p flag tells Nmap to scan for particular ports, in this case we scanned for ports 80 and 443 (ports used to communicate over the internet). If these ports are open, then the host is communicating over the internet, if closed then it is not. In the image above, my laptop and my router are communicating over the internet, which makes sense because I'm using my laptop to write this over the internet and my laptop connects to the internet through my router. 
+To do this, follow the code below:                                                                                                  
+![operatingsystem](https://user-images.githubusercontent.com/62024377/111917439-64ece780-8a56-11eb-8bfe-e36952b8a8cb.png)                                                             
+Oh no! That didn't work! Why? Sometimes, a device will be live but is configured not to respond to pings. Nmap, by default, tries to ping the device 
+and when it doesn't recieve a response back you get the problem as noted above. Not to worry! Nmap already gives us the solution. So, let's try it out.           
+![OSdetection](https://user-images.githubusercontent.com/62024377/111917720-e4c78180-8a57-11eb-903d-5f9734004699.png)                                                                   
+AHA! It works! But why? Since Nmap, by default, tries to ping a device that is configured not to respond back, it doesn't. Thus, Nmap says "Well,
+they aren't responding. They must be down, I'm quitting.". By using the -Pn flag, we are telling Nmap that we want you to scan it regardless of 
+whether you get a response back. When it does, Nmap realizes that the host is alive and we get the information we wanted. 
+In this case, I discovered that my laptop (identified by the IP address 192.168.1.56) is running on Linux (Ubuntu to be exact). 
+What operating system did you get back? 
+##### Note that the OS detection is not always 100% reliable on Nmap. 
+
+##### What if we want to know which devices, if any, are on or are attempting to use the internet?
+We can do this with the following:                                                                                    
+![portscan](https://user-images.githubusercontent.com/62024377/111922505-88bd2700-8a70-11eb-815a-44c63224a880.png)                                             
+The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. What this means is Nmap sends a SYN, the host (if active) sends 
+an ACK back, and then Nmap finishes by sending its' own ACK back to secure the connection. In other words, Nmap says "hey, are you listening!", the host replies back with "yeah, what's up?", and Nmap says "nice, you're alive!". This scan, although effective, poses some risks. A configured firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." and can log your activites and may even prevent your scan from completing. Another flag you can use in place of -sT is -sS which is much stealthier and is refered to as a SYN scan. Nmap will send a SYN to the host, the host will send back an ACK (just like before) but instead of ackwoledging with another ACK, Nmap will just cut communications. Think of it like walking away from a conversation mid-sentence. The -p flag tells Nmap to scan for particular ports, in this case we scanned for ports 80 and 443 (ports used to communicate over the internet). If these ports are open, then the host is communicating over the internet, if closed then it is not. In the image above, my laptop and my router are communicating over the internet, which makes sense because I'm using my laptop to write this over the internet and my laptop connects to the internet through my router. 
 
 ### More with Nmap
 So now you have a basic idea of how to use Nmap to get information such as knowing which devices are connected to a given network, how to obtain more specific information about those devices (like what operating system they are running) and what some common tags are used for in nmap. This is only the tip of the iceburg with what you can do with this tool, for more information about what to use nmap for please visit their official site [here](https://nmap.org/).
  
- ### Legal disclaimer!
- Only use nmap on devices that **YOU** own or have explicit permission by the owner to use nmap. Although it is not necessarily illegal to "test" the security of a given network, it is highly suspicious to do so and may get you in legal trouble if you are not the explicit owner. **If you don't own it, don't touch it!**
+### Legal disclaimer!
+Only use nmap on devices that **YOU** own or have explicit permission by the owner to use nmap. Although it is not necessarily illegal to "test" the security of a given network, it is highly suspicious to do so and may get you in legal trouble if you are not the explicit owner. **If you don't own it, don't touch it!**
  
- ### Licensing
- Nmap is distributed under the terms of the *Nmap Public Source Lincense*. Please refer to their HTML version [here](https://nmap.org/npsl/npsl-annotated.html) or their plain text version [here](https://svn.nmap.org/nmap/LICENSE).
+### Licensing
+Nmap is distributed under the terms of the *Nmap Public Source Lincense*. Please refer to their HTML version [here](https://nmap.org/npsl/npsl-annotated.html) or their plain text version [here](https://svn.nmap.org/nmap/LICENSE).
  
- ### Want to contribute to nmap?
- If you feel you have some worthy contributions to nmap, such as a discovery of a bug or a new probe, check out there website [here](https://nmap.org/book/vscan-community.html) or visit their github [here](https://github.com/nmap/nmap/contribute).
+### Want to contribute to nmap?
+If you feel you have some worthy contributions to nmap, such as a discovery of a bug or a new probe, check out there website [here](https://nmap.org/book/vscan-community.html) or visit their github [here](https://github.com/nmap/nmap/contribute).
  
- ## HAPPY PROBING!
+## HAPPY PROBING!
 
  
 
