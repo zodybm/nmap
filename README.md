@@ -24,7 +24,7 @@ It is a free and open-source VM perfectly suited for this task. To install Kali 
 
 ### Using Nmap
 
-##### Note that I am using Ubuntu, but everything is the same regardless of which Debian-based Linux distro you use.
+**Note that I am using Ubuntu, but everything is the same regardless of which Debian-based Linux distro you use.**                                                
 
 Now that you have Nmap installed, open up the terminal and type in 'nmap' and hit 'enter'
 on the keyboard. What you will see is a list of various commands and flags you can use with Nmap. I will be 
@@ -35,7 +35,7 @@ showing you a general overview of certain ones for common tasks to get you start
 Let's say I want to know whether my phone is up and running. I would use the command: 
 ![ping](https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png) 
 
-##### to stop pinging just press ctrl+c
+ **to stop pinging just press ctrl+c**                                                                                                  
 
 You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever 
 format your region uses. 
@@ -43,7 +43,7 @@ format your region uses.
 ##### Let's try it out!
 
 ![network](https://user-images.githubusercontent.com/62024377/111916494-91eacb80-8a51-11eb-9600-525e7cd55867.png)                                      
-##### Note that the 0/24 at the end of the IP address tells nmap to scan for 256 IP addresses
+**Note that the 0/24 at the end of the IP address tells nmap to scan for 256 IP addresses**                                                                      
 As you can see, my network is working. Presumably, yours is too. I will assume that your network has space allocated
 for a maximum of 256 hosts. Not all of them will be used up, the majority probably aren't. So, if we wanted 
 to see which IP addresses are being used we could ping all 256 possible addresses one by one, but that is very time consuming.
@@ -72,7 +72,7 @@ they aren't responding. They must be down, I'm quitting.". By using the -Pn flag
 whether you get a response back. When it does, Nmap realizes that the host is alive and we get the information we wanted. 
 In this case, I discovered that my laptop (identified by the IP address 192.168.1.56) is running on Linux (Ubuntu to be exact). 
 What operating system did you get back? 
-##### Note that the OS detection is not always 100% reliable on Nmap. 
+**Note that the OS detection is not always 100% reliable on Nmap.**                                                                                               
 
 ##### What if we want to know which devices, if any, are on or are attempting to use the internet?
 We can do this with the following:                                                                                    
