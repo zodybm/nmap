@@ -1,1 +1,126 @@
 theme: jekyll-theme-merlot
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>Nmap</h1>
+<h2> What You Will Learn</h2>
+
+<ul>
+	<li> How to install and use Nmap</li>
+	<li>How to build a subnet of hosts on a network</li>
+	<li>The different flags used to find specific information about a host</li>
+</ul>
+<h3>How to install and use Nmap</h3>
+<p>Nmap is a linux-based command-line tool used for network exploration and security auditing. 
+<br>Although it can be used on windows, it is easiest to use on a Debian based Linux distro.</p>
+
+<h4> If your OS is a Debian based Linux distro</h4>
+<p> You can simply type in the command 'sudo apt install nmap' in the terminal and hit 'enter'. 
+<br> You will be prompted for your sudo password and then it will ask you if you want to 
+<br> continue the installation. Press 'y' and hit 'enter' and that's it! Nmap is installed!</p>
+<h4> You will see something similar to the image:</h4>
+<img src="https://user-images.githubusercontent.com/62024377/111915218-7e3c6680-8a4b-11eb-8855-f4be8adfffae.png" 
+width ="600" height="500">
+<p><b> Note that if you are running Kali Linux Nmap is already installed</p></b>
+
+<h4> If your OS is Windows</h4>
+<p> The easiest and safest way is to use a virtual machine, or VM. I highly recommend using
+<br> <a href="https://www.virtualbox.org/"> virtualbox</a> and installing Kali Linux on it.
+<br> It is a free and open-source VM perfectly suited for this task. For a step-by-step
+<br> tutorial on how to install Kali Linux on virtualbox please click 
+<a href="https://phoenixnap.com/kb/how-to-install-kali-linux-on-virtualbox"> here</a>.</p>
+
+<h3> Using Nmap</h3>
+<p><b> Note that I am using Ubuntu, but all the commands are the same</b></p>
+<p> Now that you have Nmap installed, open up the terminal and type in "nmap", then hit "enter"
+<br> on the keyboard. What you will see is a list of various commands and flags you can use 
+<br>with nmap. I will be showing you a general overview of certain ones for common tasks to get you started.</p>
+
+<h4> Network Scanning</h4>
+<p> Let's say I want to know whether my phone is up and running. I would use the command:<br><br>
+<img src="https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png"
+width="600" height="300"><br><br>
+<b>To stop pinging just press ctrl+c</b>
+You can do the same thing with your network. Depending on your region, the format of your 
+<br>network will be 192.168.1.x. If it is not, use whatever format your region uses. <br><br>
+<b> Let's try it out!</b><br><br>
+<img src="https://user-images.githubusercontent.com/62024377/111916839-41746d80-8a53-11eb-97ce-99622979f406.png"
+width="600" height="300"><br><br>
+The -sP flag tells nmap to scan for all active hosts, but not to scan for ports. 
+<br>Thus, you get a list of all of the devices that are active on your network.
+Mine currently has 4 hosts active.
+This is called a subnet of a network.</p>
+
+<h3> Finding more specific information </h3>
+<p> You discovered which hosts are on your network. What else can we find out about them?<br><br>
+<b> Let's figure out what Operating System they are using!</b>
+
+To do this follow the command below: <br><br>
+<img src="https://user-images.githubusercontent.com/62024377/111917439-64ece780-8a56-11eb-8bfe-e36952b8a8cb.png"
+width="600" height="300"><br><br>
+Oh no! That didn't work! Why? Sometimes, a device will be live but is configured not 
+<br> to respond to pings. Nmap, by default, tries to ping the device 
+and when it doesn't recieve a response back you get the problem as noted above. 
+<br> Not to worry! Nmap already gives us the solution. So, let's try it out. <br><br>
+<img src="https://user-images.githubusercontent.com/62024377/111917720-e4c78180-8a57-11eb-903d-5f9734004699.png"
+width="600" height="300"><br><br>
+AHA! It works! But why? Since nmap, by default, tries to ping a device that is configured not 
+<br> to respond back, it doesn't. Thus, nmap says "Well,
+ they aren't responding. They must be down, I'm quitting.". By using the -Pn flag, we are 
+<br> telling nmap that we want you to scan it regardless of 
+ whether you get a response back or not. When it does, nmap realizes that the host is 
+<br> alive and we get the information we wanted. 
+ In this case, I discovered that my laptop (identified by the IP address 192.168.1.56) 
+<br> is running on Linux (Ubuntu to be exact). 
+ <br> What operating system did you get back? 
+<b> Note that the OS detection is not always 100% reliable on Nmap</b></p>
+
+<h4> What if we want to know which devices, if any, are on or are attempting to use the internet?</h4>
+
+<p> We can do this with the following command:<br><br>
+<img src="https://user-images.githubusercontent.com/62024377/111922505-88bd2700-8a70-11eb-815a-44c63224a880.png"
+width="600" height="600"><br><br>
+The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. 
+<br> What this means is nmap sends a SYN, the host (if active) sends an ACK back, and then nmap 
+<br> finishes by sending its' own ACK back to secure the connection. In other words, nmap 
+<br> says "hey, are you listening!", the host replies back with "yeah, what's up?", and nmap 
+<br> says "nice, you're alive!". This scan, although effective, poses some risks. A configured 
+<br> firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." 
+<br> and can log your activites and may even prevent your scan from completing. Another flag you 
+<br> can use in place of -sT is -sS which is much stealthier and is refered to as a SYN scan. Nmap 
+<br> will send a SYN to the host, the host will send back an ACK (just like before) but instead of
+<br> ackwoledging with another ACK, nmap will just cut communications. Think of it like walking away 
+<br> from a conversation mid-sentence. The -p flag tells nmap to scan for particular ports, in this 
+<br> case we scanned for ports 80 and 443 (ports used to communicate over the internet). If these 
+<br> ports are open, then the host is communicating over the internet, if closed then it is not. 
+<br> In the image above, my laptop and my router are communicating over the internet, which makes 
+<br> sense because I'm using my laptop to write this over the internet and my laptop connects to the 
+<br> internet through my router. </p>
+
+<h3> More with Nmap </h3>
+<p> So now you have a basic idea of how to use nmap to get information such as knowing which devices 
+<br> are connected to a given network, how to obtain more specific information about those devices 
+<br> (like what operating system they are running) and what some common tags are used for in nmap. 
+<br> This is only the tip of the iceburg with what you can do with this tool, for more information 
+<br> about what to use nmap for please visit their official site <a href="https://nmap.org/"> here</a>.</p>
+
+<h3> Legal Disclaimer</h3>
+<p> Only use Nmap on devices that <b>YOU</b> own or have explicit permission by the owner to use Nmap. 
+<br> Although it is not necessarily illegal to "test" the security of a given network, it is highly 
+<br> suspicious to do so and may get you in legal trouble if you are not the explicit owner.</p>
+
+<h3> Licensing</h3>
+<p> Nmap is distributed under the terms of the <i> Nmap Public Source License</i>. Please refer to their 
+<br> HTML Version <a href="https://nmap.org/npsl/npsl-annotated.html"> here</a>.</p>
+
+<h3> Want to contribute to Nmap?</h3>
+<p> If you feel you have some worthy contributions to nmap, such as a discovery of a bug or a new probe, 
+<br> check out their website <a href="https://nmap.org/book/vscan-community.html"> here </a>
+ or visit their github <a href="https://github.com/nmap/nmap/contribute"> here </a>.</p>
+
+<h2> HAPPY PROBING</h2>
+
+</body>
+</html>
