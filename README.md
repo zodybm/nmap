@@ -10,6 +10,7 @@ An introduction to the basics of Nmap
 Nmap is a linux-based command-line tool used for network exploration and security auditing. Although it can be 
 used on Windows, it is easiest to use on a Debian-based Linux distro. 
 ### If your OS is a Debian-based Linux distro
+Simply type in the command below in your terminal then follow the prompt
 ```bash
 ~$ sudo apt install nmap
 ```
