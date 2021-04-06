@@ -64,8 +64,10 @@ A much better way to do this is to use Nmap. That is one of its' main uses after
 ```bash
 ~$ nmap -sP 192.168.1.0/24
 ```
-**The 0/24 at the end of the IP Address indicates all 256 possible addresses to scan**                                                                             
-![network-map](https://user-images.githubusercontent.com/62024377/111916839-41746d80-8a53-11eb-97ce-99622979f406.png)                               
+**The 0/24 at the end of the IP Address indicates all 256 possible addresses to scan** 
+                                                                                                                                                            
+![network-map](https://user-images.githubusercontent.com/62024377/111916839-41746d80-8a53-11eb-97ce-99622979f406.png)                                             
+                                                                                                                                                                 
 The -sP flag tells Nmap to scan for all active hosts, but not to scan for ports. Thus, you get a list of all of the devices that are active on your network.
 Mine currently has 4 hosts active.
 This is called a subnet of a network. 
@@ -75,8 +77,12 @@ This is called a subnet of a network.
 You discovered which hosts are on your network. What else can you find out about them? 
  
 ### Let's figure out what Operating System they are using!
- 
-To do this, follow the code below:                                                                                                  
+
+To do this, follow the command:                                               
+```bash
+~$ nmap -O -Pn <devices IP Address>
+```
+
 ![operatingsystem](https://user-images.githubusercontent.com/62024377/111917439-64ece780-8a56-11eb-8bfe-e36952b8a8cb.png)                                                             
 Oh no! That didn't work! Why? Sometimes, a device will be live but is configured not to respond to pings. Nmap, by default, tries to ping the device 
 and when it doesn't recieve a response back you get the problem as noted above. Not to worry! Nmap already gives us the solution. So, let's try it out.           
