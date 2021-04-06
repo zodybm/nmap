@@ -50,16 +50,21 @@ You can do the same thing with your network. Depending on your region, the forma
 format your region uses. 
 
 ### Let's try it out!
-
-![network](https://user-images.githubusercontent.com/62024377/111916494-91eacb80-8a51-11eb-9600-525e7cd55867.png)                                      
-**Note that the 0/24 at the end of the IP address tells nmap to scan for 256 IP addresses**                                                                      
+The command is just like before:
+```bash
+~$ ping 192.168.1.1
+```
+![network](https://user-images.githubusercontent.com/62024377/111916494-91eacb80-8a51-11eb-9600-525e7cd55867.png)                                                                                                          
 As you can see, my network is working. Presumably, yours is too. I will assume that your network has space allocated
-for a maximum of 256 hosts. Not all of them will be used up, the majority probably aren't. So, if we wanted 
+for a maximum of 256 hosts. Not all of them will be used, the majority probably are not. So, if we wanted 
 to see which IP addresses are being used we could ping all 256 possible addresses one by one, but that is very time consuming.
 A much better way to do this is to use Nmap. That is one of its' main uses afterall! 
  
 ### The way to do that is: 
-
+```bash
+~$ nmap -sP 192.168.1.0/24
+```
+**The 0/24 at the end of the IP Address indicates all 256 possible addresses to scan**                                                                             
 ![network-map](https://user-images.githubusercontent.com/62024377/111916839-41746d80-8a53-11eb-97ce-99622979f406.png)                               
 The -sP flag tells Nmap to scan for all active hosts, but not to scan for ports. Thus, you get a list of all of the devices that are active on your network.
 Mine currently has 4 hosts active.
