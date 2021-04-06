@@ -29,13 +29,19 @@ It is a free and open-source VM perfectly suited for this task. To install Kali 
 
  **Note that I am using Ubuntu, but everything is the same regardless of which Debian-based Linux distro you use.**                                                
 
-Now that you have Nmap installed, open up the terminal and type in 'nmap' and hit 'enter'
-on the keyboard. What you will see is a list of various commands and flags you can use with Nmap. I will be 
+Now that you have Nmap installed, open up the terminal and type in the command below
+```bash
+~$ nmap
+```
+What you will see is a list of various commands and flags you can use with Nmap. I will be 
 showing you a general overview of certain ones for common tasks to get you started. 
 
 ### Network scanning
 
 Let's say I want to know whether my phone is up and running. I would use the command: 
+```bash
+~$ ping <devices ip address>
+```
 ![ping](https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png) 
 
  **to stop pinging just press ctrl+c**                                                                                                  
