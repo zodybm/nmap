@@ -11,8 +11,8 @@ Nmap is a linux-based command-line tool used for network exploration and securit
 used on Windows, it is easiest to use on a Debian-based Linux distro. 
 ### If your OS is a Debian-based Linux distro
 **First** open up the terminal                                                                                                      
-**Second** type in <sudo apt install nmap/> 
-**Third** 
+**Second** type in sudo apt install nmap                                                                                             
+**Third** type in your sudo password and then just follow the prompt                                                         
  **You will see something similar to the image:**                                                                                                                                                                                                                                      
 ![nmap-install](https://user-images.githubusercontent.com/62024377/111915218-7e3c6680-8a4b-11eb-8855-f4be8adfffae.png)
 
