@@ -1,21 +1,22 @@
 # Nmap
-An introduction to the basics of Nmap
+The goal of this documentation is to familiarize you with the basics of Nmap and its capabilities.
 
 ## What you will learn 
 * How to install and use Nmap.
-* How to use Nmap to build a subnet of the various hosts on a network.
+* How to use Nmap to build a subnet of the various hosts on your network.
 * The different Nmap flags you can use to find specific information about a host.
 
-### How to install and use Nmap
+### Installing Nmap on a Debian-based Linux Distro
 Nmap is a linux-based command-line tool used for network exploration and security auditing. Although it can be 
 used on Windows, it is easiest to use on a Debian-based Linux distro. 
-### If your OS is a Debian-based Linux distro
-Simply type in the command below in your terminal then follow the prompt
+                                                                                                                                  
+**To install** type in the command below in your terminal then follow the prompt:
 ```bash
 ~$ sudo apt install nmap
 ```
                                                                                                                               
- **You will see something similar to the image:**                                                                                                                                                                                                                                      
+ **You will see something similar to the image:** 
+                                                                                                                                     
 ![nmap-install](https://user-images.githubusercontent.com/62024377/111915218-7e3c6680-8a4b-11eb-8855-f4be8adfffae.png)
 
 
@@ -29,7 +30,7 @@ It is a free and open-source VM perfectly suited for this task. To install Kali 
 
  **Note that I am using Ubuntu, but everything is the same regardless of which Debian-based Linux distro you use.**                                                
 
-Now that you have Nmap installed, open up the terminal and type in the command below
+Now that you have Nmap installed, open up the terminal and type in the command below:
 ```bash
 ~$ nmap
 ```
@@ -44,12 +45,12 @@ Let's say I want to know whether my phone is up and running. I would use the com
 ```
 ![ping](https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png) 
 
- **to stop pinging just press ctrl+c**                                                                                                  
-
-You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever 
-format your region uses. 
-
-### Let's try it out!
+ **to stop pinging just press ctrl+c**                                                                                                 
+ What you are doing is sending packets to the device to see if it is responding back. If it is, you will recieve a package back along with the response time of that device. If you recieve nothing back, check to make sure your device is on.                                     
+                                                                                                                                           
+You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever format your region uses. 
+                                                                                                                                          
+**Let's try it out!**                                                                                                                       
 The command is just like before:
 ```bash
 ~$ ping 192.168.1.1
@@ -58,9 +59,9 @@ The command is just like before:
 As you can see, my network is working. Presumably, yours is too. I will assume that your network has space allocated
 for a maximum of 256 hosts. Not all of them will be used, the majority probably are not. So, if we wanted 
 to see which IP addresses are being used we could ping all 256 possible addresses one by one, but that is very time consuming.
-A much better way to do this is to use Nmap. That is one of its' main uses afterall! 
- 
-### The way to do that is: 
+A much better way to do this is to use Nmap. That is one of its main uses afterall! 
+                                                                                                                                         
+**To do that, use the command below:**                                                                                                 
 ```bash
 ~$ nmap -sP 192.168.1.0/24
 ```
@@ -75,9 +76,9 @@ This is called a subnet of a network.
 ### Finding more specific information
  
 You discovered which hosts are on your network. What else can you find out about them? 
- 
-### Let's figure out what Operating System they are using!
-
+                                                                                                                                         
+**Let's figure out what Operating System they are using!**
+                                                                                                                                         
 To do this, follow the command:                                               
 ```bash
 ~$ nmap -O <devices IP Address>
@@ -92,14 +93,17 @@ Enter this command:
 ```
 ![OSdetection](https://user-images.githubusercontent.com/62024377/111917720-e4c78180-8a57-11eb-903d-5f9734004699.png)                                                                   
 AHA! It works! But why? Since Nmap, by default, tries to ping a device that is configured not to respond back, it doesn't. Thus, Nmap says "Well,
-they aren't responding. They must be down, I'm quitting.". By using the -Pn flag, we are telling Nmap that we want you to scan it regardless of 
-whether you get a response back. When it does, Nmap realizes that the host is alive and we get the information we wanted. 
+they aren't responding. They must be down, I'm quitting.". By using the -Pn flag, we are telling Nmap that we want to scan the device  regardless of 
+whether we get a response back. When it does, Nmap realizes that the host is alive and we get the information we wanted. 
 In this case, I discovered that my laptop (identified by the IP address 192.168.1.56) is running on Linux (Ubuntu to be exact). 
 What operating system did you get back? 
 **Note that the OS detection is not always 100% reliable on Nmap.**                                                                                               
 
 ### What if we want to know which devices, if any, are on or are attempting to use the internet?
-We can do this with the following:                                                                                    
+You can do this with the command:                                                                                                       
+```bash
+~$ 
+```
 ![portscan](https://user-images.githubusercontent.com/62024377/111922505-88bd2700-8a70-11eb-815a-44c63224a880.png)                                             
 The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. What this means is Nmap sends a SYN, the host (if active) sends 
 an ACK back, and then Nmap finishes by sending its' own ACK back to secure the connection. In other words, Nmap says "hey, are you listening!", the host replies back with "yeah, what's up?", and Nmap says "nice, you're alive!". This scan, although effective, poses some risks. A configured firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." and can log your activites and may even prevent your scan from completing. Another flag you can use in place of -sT is -sS which is much stealthier and is refered to as a SYN scan. Nmap will send a SYN to the host, the host will send back an ACK (just like before) but instead of ackwoledging with another ACK, Nmap will just cut communications. Think of it like walking away from a conversation mid-sentence. The -p flag tells Nmap to scan for particular ports, in this case we scanned for ports 80 and 443 (ports used to communicate over the internet). If these ports are open, then the host is communicating over the internet, if closed then it is not. In the image above, my laptop and my router are communicating over the internet, which makes sense because I'm using my laptop to write this over the internet and my laptop connects to the internet through my router. 
