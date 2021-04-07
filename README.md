@@ -81,7 +81,7 @@ You discovered which hosts are on your network. What else can you find out about
                                                                                                                                          
 To do this, follow the command:                                               
 ```bash
-~$ nmap -O <devices IP Address>
+~$ sudo nmap -O <devices IP Address>
 ```
 
 ![operatingsystem](https://user-images.githubusercontent.com/62024377/111917439-64ece780-8a56-11eb-8bfe-e36952b8a8cb.png)                                                             
@@ -89,7 +89,7 @@ Oh no! That didn't work! Why? Sometimes, a device will be live but is configured
 and when it doesn't recieve a response back you get the problem as noted above. Not to worry! Nmap already gives us the solution. So, let's try it out.              
 Enter this command:
 ```bash
-~$ nmap -O -Pn <devices IP Address>
+~$ sudo nmap -O -Pn <devices IP Address>
 ```
 ![OSdetection](https://user-images.githubusercontent.com/62024377/111917720-e4c78180-8a57-11eb-903d-5f9734004699.png)                                                                   
 AHA! It works! But why? Since Nmap, by default, tries to ping a device that is configured not to respond back, it doesn't. Thus, Nmap says "Well,
