@@ -1,6 +1,7 @@
 # Nmap
 The goal of this documentation is to familiarize you with the basics of Nmap and its capabilities.
 
+## Table of Contents
 - [Nmap](#nmap)
   * [What you will learn](#what-you-will-learn)
     + [System Requirements](#system-requirements)
@@ -18,7 +19,7 @@ The goal of this documentation is to familiarize you with the basics of Nmap and
 * How to install and use Nmap.
 * How to use Nmap to build a subnet of the various hosts on your network.
 * The different Nmap flags you can use to find specific information about a host.
-                                                                                                                                                                   
+                                                                                                                                                          
 ### System Requirements
 You only need to have about 8 MB available for storage and the best part is Nmap will run on practically any computer or laptop!
                                                                                                                                                                     
