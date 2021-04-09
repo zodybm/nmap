@@ -1,6 +1,19 @@
 # Nmap
 The goal of this documentation is to familiarize you with the basics of Nmap and its capabilities.
 
+- [Nmap](#nmap)
+  * [What you will learn](#what-you-will-learn)
+    + [System Requirements](#system-requirements)
+    + [Installing Nmap on a Debian-based Linux Distro](#installing-nmap-on-a-debian-based-linux-distro)
+    + [If your OS is Windows](#if-your-os-is-windows)
+    + [Using Nmap](#using-nmap)
+    + [Network scanning](#network-scanning)
+    + [Finding more specific information](#finding-more-specific-information)
+    + [More with Nmap](#more-with-nmap)
+    + [Legal disclaimer!](#legal-disclaimer-)
+    + [Licensing](#licensing)
+    + [Want to contribute to nmap?](#want-to-contribute-to-nmap-)
+                                                                                                                                                                      
 ## What you will learn 
 * How to install and use Nmap.
 * How to use Nmap to build a subnet of the various hosts on your network.
