@@ -63,9 +63,9 @@ Let's say I want to know whether my phone is up and running. I would use the com
 ![ping](https://user-images.githubusercontent.com/62024377/111915779-569acd80-8a4e-11eb-89e1-941650a5c36c.png) 
 
  **to stop pinging just press ctrl+c**                                                                                                 
- What you are doing is sending packets to the device to see if it is responding back. If it is, you will recieve a package back along with the response time of that device. If you recieve nothing back, check to make sure your device is on.                                     
+ What you are doing is sending packets to the device to see if it is responding back. If it is, you will recieve a packet back along with the response time of that device. If you recieve nothing back, check to make sure your device is on.                                     
                                                                                                                                            
-You can do the same thing with your network. Depending on your region, the format of your network will be 192.168.1.x. If it is not, use whatever format your region uses. 
+You can do the same thing with your network. The format of your network will be 192.168.1.1.
                                                                                                                                           
 **Let's try it out!**                                                                                                                       
 The command is just like before:
@@ -76,7 +76,7 @@ The command is just like before:
 As you can see, my network is working. Presumably, yours is too. I will assume that your network has space allocated
 for a maximum of 256 IP addresses. Not all of them will be used, the majority probably are not. So, if we wanted 
 to see which IP addresses are being used we could ping all 256 possible addresses one by one, but that is very time consuming.
-A much better way to do this is to use Nmap. That is one of its main uses afterall! 
+A much better way to do this is to use Nmap. 
                                                                                                                                          
 **To do that, use the command below:**                                                                                                 
 ```bash
@@ -123,7 +123,7 @@ You can do this with the command:
 ```
 ![portscan](https://user-images.githubusercontent.com/62024377/111922505-88bd2700-8a70-11eb-815a-44c63224a880.png)                                             
 The -sT flag uses a 'Three-way handshake' to establish whether a connection exists. What this means is Nmap sends a SYN, the host (if active) sends 
-an ACK back, and then Nmap finishes by sending its' own ACK back to secure the connection. In other words, Nmap says "hey, are you listening!", the host replies back with "yeah, what's up?", and Nmap says "nice, you're alive!". This scan, although effective, poses some risks. A configured firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." and can log your activites and may even prevent your scan from completing.                               
+an ACK back, and then Nmap finishes by sending its own ACK back to secure the connection. In other words, Nmap says "hey, are you listening!", the host replies back with "yeah, what's up?", and Nmap says "nice, you're alive!". This scan, although effective, poses some risks. A configured firewall may catch on to all of these requests and say "hmmm that doesn't seem right..." and can log your activites and may even prevent your scan from completing.                               
 **You don't even need the full three-way handshake to determine if a connection exists**                                                                                                                                                                                    
 You can use the -sS flag wich is much stealthier, faster and is refered to as a SYN scan.                                                                         
 The command is below:
@@ -133,7 +133,7 @@ The command is below:
 It differs from -sT in that Nmap will send a SYN to the host, the host will send back an ACK (just like before) but instead of ackwoledging with another ACK, Nmap will just cut communications. Think of it like walking away from a conversation mid-sentence. The -p flag tells Nmap to scan for particular ports, in this case we scanned for ports 80 and 443 (ports used to communicate over the internet). If these ports are open, then the host is communicating over the internet, if closed then it is not. In the image above, my laptop and my router are communicating over the internet, which makes sense because I'm using my laptop to write this over the internet and my laptop connects to the internet through my router. 
 
 ### More with Nmap
-So, now you have a basic idea of how to use Nmap to get information such as knowing which devices are connected to a given network, how to obtain more specific information about those devices (like what operating system they are running) and what some common flags are used for in Nmap. This is only the tip of the iceburg with what you can do with this tool, for more information about what to use Nmap for please visit their official site [here](https://nmap.org/).
+Now you have a basic idea of how to use Nmap to get information such as knowing which devices are connected to a given network, how to obtain more specific information about those devices (like what operating system they are running) and what some common flags are used for in Nmap. This is only the tip of the iceburg with what you can do with this tool, for more information about what to use Nmap for, please visit their official site [here](https://nmap.org/).
  
 ### Legal disclaimer!
 Only use Nmap on devices that **YOU** own or have permission from the owner to use Nmap on. Although it is not necessarily illegal to "test" the security of a given network, it is highly suspicious to do so and may get you in legal trouble if you are not the explicit owner. 
